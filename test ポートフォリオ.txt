@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>K.CONSULTING | Organizational Resilience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts: PROGRIT風の力強いBarlow Condensedと、可読性の高いNoto Sans JP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --font-jp: 'Noto Sans JP', sans-serif;
+            --font-en: 'Barlow Condensed', sans-serif;
+            --color-black: #111111;
+            --color-gray: #F5F5F5;
+            --color-accent: #0044CC; /* 知的なネイビーブルー */
+        }
+
+        body {
+            font-family: var(--font-jp);
+            color: var(--color-black);
+            background-color: #ffffff;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .font-en {
+            font-family: var(--font-en);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ユーティリティ */
+        .tracking-wide-custom { letter-spacing: 0.1em; }
+        
+        /* アニメーション: シンプルで力強いフェードアップ */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* 画像のフィルター */
+        .img-grayscale {
+            filter: grayscale(100%);
+            transition: filter 0.5s ease;
+        }
+        .group:hover .img-grayscale {
+            filter: grayscale(0%);
+        }
+
+        /* ラインアニメーション */
+        .line-grow {
+            width: 0;
+            transition: width 1s ease-out;
+        }
+        .line-grow.visible {
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 h-20 flex items-center transition-all duration-300" id="header">
+        <div class="container mx-auto px-6 md:px-12 flex justify-between items-center">
+            <a href="#" class="flex flex-col leading-none group">
+                <span class="font-en text-2xl font-bold tracking-tighter">K.CONSULTING</span>
+                <span class="text-[10px] text-gray-500 font-bold tracking-widest mt-1 group-hover:text-blue-700 transition-colors">RISK STRATEGY</span>
+            </a>
+            
+            <nav class="hidden md:flex gap-10 font-en text-sm font-bold tracking-widest">
+                <a href="#mission" class="hover:text-blue-700 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all hover:after:w-full">MISSION</a>
+                <a href="#service" class="hover:text-blue-700 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all hover:after:w-full">SERVICE</a>
+                <a href="#contact" class="hover:text-blue-700 transition-colors relative after:content-[''] after:absolute after:bottom-[-4px] after:left-0 after:w-0 after:h-[2px] after:bg-blue-700 after:transition-all hover:after:w-full">CONTACT</a>
+            </nav>
+
+            <button class="md:hidden text-2xl" id="menu-btn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-black z-50 transform translate-x-full transition-transform duration-300 flex flex-col items-center justify-center gap-8 text-white">
+        <button id="close-menu" class="absolute top-6 right-6 text-2xl"><i class="fa-solid fa-xmark"></i></button>
+        <a href="#mission" class="text-3xl font-en font-bold mobile-link">MISSION</a>
+        <a href="#service" class="text-3xl font-en font-bold mobile-link">SERVICE</a>
+        <a href="#contact" class="text-3xl font-en font-bold mobile-link">CONTACT</a>
+    </div>
+
+    <main>
+        <!-- Hero Section: PROGRIT風の力強いメインビジュアル -->
+        <section class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+            <!-- 背景画像: 落ち着いた、しかし意思を感じる人物や空間のイメージ -->
+            <div class="absolute inset-0 z-0">
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=2000" alt="Office Atmosphere" class="w-full h-full object-cover brightness-[0.6] grayscale">
+            </div>
+
+            <div class="container mx-auto px-6 md:px-12 relative z-10 text-white pt-20">
+                <div class="max-w-4xl">
+                    <p class="font-en text-sm md:text-base font-bold tracking-[0.3em] mb-6 text-gray-300 fade-up">ORGANIZATIONAL RESILIENCE</p>
+                    <h1 class="font-en text-6xl md:text-8xl font-bold leading-[0.9] mb-8 fade-up" style="transition-delay: 0.1s;">
+                        DESIGNING<br>
+                        THE UNBREAKABLE
+                    </h1>
+                    <div class="h-[2px] bg-blue-600 mb-8 line-grow" id="hero-line"></div>
+                    <p class="text-lg md:text-2xl font-bold leading-relaxed mb-10 fade-up" style="transition-delay: 0.2s;">
+                        組織の「突然死」を防ぐ。<br>
+                        リスクを構造からデザインする。
+                    </p>
+                    <a href="#mission" class="inline-block border border-white px-10 py-4 font-en font-bold tracking-widest hover:bg-white hover:text-black transition-all duration-300 fade-up" style="transition-delay: 0.3s;">
+                        VIEW MISSION
+                    </a>
+                </div>
+            </div>
+            
+            <!-- スクロールインジケーター -->
+            <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+                <span class="font-en text-xs tracking-widest text-white">SCROLL</span>
+                <div class="w-[1px] h-12 bg-white"></div>
+            </div>
+        </section>
+
+        <!-- Mission / Issues Section -->
+        <section id="mission" class="py-24 md:py-32 px-6 md:px-12 bg-white">
+            <div class="container mx-auto max-w-6xl">
+                <div class="flex flex-col md:flex-row gap-16 items-start">
+                    <div class="md:w-1/3 sticky top-32">
+                        <h2 class="font-en text-5xl md:text-6xl font-bold text-gray-900 mb-4 fade-up">ISSUES</h2>
+                        <p class="text-sm font-bold text-gray-400 tracking-widest mb-8 fade-up">組織が抱えるサイレントキラー</p>
+                        <div class="w-16 h-1 bg-blue-600 fade-up"></div>
+                    </div>
+                    
+                    <div class="md:w-2/3 space-y-16">
+                        <div class="fade-up">
+                            <h3 class="text-2xl md:text-3xl font-bold mb-6 leading-tight">
+                                離職、事故、不祥事。<br>
+                                それは「運」ではなく「構造」の問題だ。
+                            </h3>
+                            <p class="text-gray-600 leading-loose text-justify">
+                                多くの企業が、問題が起きてから対策を打ちます。しかし、人材流出やメンタル不調による休職、突発的な事故は、組織の「免疫不全」が引き起こす必然の結果です。<br><br>
+                                経営に必要なのは、事後処理の対症療法ではなく、リスクを未然に無効化する<strong>「構造改革」</strong>です。私は医療とリスクマネジメントの専門知見を統合し、組織の深部に介入します。
+                            </p>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-8 pt-8 border-t border-gray-100 fade-up">
+                            <div>
+                                <div class="font-en text-4xl font-bold text-gray-200 mb-2">01</div>
+                                <h4 class="font-bold text-lg mb-3">人材流出の連鎖</h4>
+                                <p class="text-sm text-gray-600">優秀な層からの離職。それは個人の事情ではなく、組織が不健全であるというシグナルです。</p>
+                            </div>
+                            <div>
+                                <div class="font-en text-4xl font-bold text-gray-200 mb-2">02</div>
+                                <h4 class="font-bold text-lg mb-3">法的リスクと訴訟</h4>
+                                <p class="text-sm text-gray-600">形式的なストレスチェックや安全配慮義務だけでは、有事の際の法的責任は回避できません。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Service Section: PROGRIT風のグリッドレイアウト -->
+        <section id="service" class="py-24 md:py-32 px-6 md:px-12 bg-gray-50">
+            <div class="container mx-auto max-w-6xl">
+                <div class="text-center mb-20 fade-up">
+                    <h2 class="font-en text-5xl md:text-6xl font-bold text-gray-900 mb-4">SOLUTIONS</h2>
+                    <p class="text-sm font-bold text-gray-400 tracking-widest mb-8">3つのレイヤーによる構造改革</p>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Solution 1 -->
+                    <div class="bg-white p-10 shadow-sm hover:shadow-xl transition-shadow duration-300 group fade-up">
+                        <div class="h-12 w-12 bg-gray-900 text-white flex items-center justify-center text-xl mb-8 group-hover:bg-blue-600 transition-colors">
+                            <i class="fa-solid fa-heart-pulse"></i>
+                        </div>
+                        <h3 class="font-en text-2xl font-bold mb-2">INDUSTRIAL HEALTH</h3>
+                        <p class="text-xs text-gray-400 font-bold tracking-widest mb-6">産業保健コンサルティング</p>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            メンタル不調を「未然に防ぐ」攻めの産業保健。組織サーベイと医学的知見に基づき、生産性を阻害する要因を特定・排除する環境設計を行います。
+                        </p>
+                        <ul class="text-xs font-bold text-gray-500 space-y-2 border-t border-gray-100 pt-4">
+                            <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>早期発見フローの構築</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>復職支援プログラム</li>
+                        </ul>
+                    </div>
+
+                    <!-- Solution 2 -->
+                    <div class="bg-white p-10 shadow-sm hover:shadow-xl transition-shadow duration-300 group fade-up" style="transition-delay: 0.1s;">
+                        <div class="h-12 w-12 bg-gray-900 text-white flex items-center justify-center text-xl mb-8 group-hover:bg-blue-600 transition-colors">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="font-en text-2xl font-bold mb-2">RISK DESIGN</h3>
+                        <p class="text-xs text-gray-400 font-bold tracking-widest mb-6">リスクマネジメント・保険</p>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            地域おこし協力隊や移住者の「挑戦」を支えるファイナンス設計。活動特有のリスクを定量化し、万が一の生活破綻を防ぐセーフティネットを構築します。
+                        </p>
+                        <ul class="text-xs font-bold text-gray-500 space-y-2 border-t border-gray-100 pt-4">
+                            <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>活動リスク診断</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>カスタム補償設計</li>
+                        </ul>
+                    </div>
+
+                    <!-- Solution 3 -->
+                    <div class="bg-white p-10 shadow-sm hover:shadow-xl transition-shadow duration-300 group fade-up" style="transition-delay: 0.2s;">
+                        <div class="h-12 w-12 bg-gray-900 text-white flex items-center justify-center text-xl mb-8 group-hover:bg-blue-600 transition-colors">
+                            <i class="fa-solid fa-users-rays"></i>
+                        </div>
+                        <h3 class="font-en text-2xl font-bold mb-2">SOCIAL CAPITAL</h3>
+                        <p class="text-xs text-gray-400 font-bold tracking-widest mb-6">GBC / コミュニティ資本</p>
+                        <p class="text-sm text-gray-600 leading-relaxed mb-6">
+                            制度ではカバーできないリスクに対する「互助」のインフラ作り。GBC活動を通じて孤立を防ぎ、地域と組織の持続可能性（レジリエンス）を高めます。
+                        </p>
+                        <ul class="text-xs font-bold text-gray-500 space-y-2 border-t border-gray-100 pt-4">
+                            <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>コミュニティ形成</li>
+                            <li><i class="fa-solid fa-check text-blue-600 mr-2"></i>孤立防止ネットワーク</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 md:py-32 px-6 md:px-12 bg-gray-900 text-white">
+            <div class="container mx-auto max-w-4xl text-center">
+                <p class="font-en text-sm font-bold tracking-[0.3em] text-gray-400 mb-6 fade-up">CONTACT</p>
+                <h2 class="text-3xl md:text-5xl font-bold mb-10 leading-tight fade-up">
+                    リスクを、<br>
+                    成長の基盤に変える。
+                </h2>
+                <p class="text-gray-400 mb-12 leading-relaxed text-sm md:text-base fade-up">
+                    現状の課題が不明確でも構いません。<br>
+                    まずは組織や活動のリスクについて、フラットに対話することから始めましょう。
+                </p>
+                
+                <a href="mailto:info@example.com" class="inline-flex items-center justify-center gap-4 bg-white text-black px-12 py-5 font-en font-bold tracking-widest hover:bg-blue-600 hover:text-white transition-all duration-300 fade-up shadow-lg hover:shadow-blue-900/50">
+                    CONTACT ME <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black text-white py-12 px-6 md:px-12 border-t border-gray-800">
+            <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="font-en text-2xl font-bold tracking-tighter mb-1">K.CONSULTING</p>
+                    <p class="text-[10px] text-gray-500 font-bold tracking-widest">RISK & HEALTH STRATEGY</p>
+                </div>
+                <p class="text-[10px] text-gray-600 font-en tracking-widest">© 2025 K.CONSULTING. ALL RIGHTS RESERVED.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- Scroll Animation Observer ---
+        const observerOptions = {
+            root: null,
+            threshold: 0.1,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        // 監視対象
+        document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+        
+        // ラインアニメーション用
+        const line = document.getElementById('hero-line');
+        if(line) observer.observe(line);
+
+
+        // --- Mobile Menu ---
+        const menuBtn = document.getElementById('menu-btn');
+        const closeBtn = document.getElementById('close-menu');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const links = document.querySelectorAll('.mobile-link');
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('translate-x-full');
+        }
+
+        menuBtn.addEventListener('click', toggleMenu);
+        closeBtn.addEventListener('click', toggleMenu);
+        links.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // --- Smooth Scroll ---
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    if (!mobileMenu.classList.contains('translate-x-full')) {
+                        toggleMenu();
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
